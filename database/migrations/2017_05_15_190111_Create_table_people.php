@@ -18,7 +18,7 @@ class CreateTablePeople extends Migration
             $table->string('names');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->string('photos')->nullable();
+            $table->string('photo')->nullable();
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

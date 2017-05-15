@@ -8,4 +8,4 @@ Las Herramientas usadas son las siguientes
 * Php 7.0
 * Laravel 5.4
 
-![Diagrama Base de Datos](Adicionales/DiagramaCrudBasicLaravel54.png)
+![Diagrama Base de Datos](Aditionals/DiagramaCrudBasicLaravel54.png)

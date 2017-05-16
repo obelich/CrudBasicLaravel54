@@ -10,6 +10,10 @@
 @extends('layouts.app')
 @section('content')
 
+    <p>
+        <a href="{{ route('contacts.create') }}" class="">Nuevo</a>
+    </p>
+
     <table class="table">
         <thead>
             <th>Fotografía</th>

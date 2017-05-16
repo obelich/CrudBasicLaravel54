@@ -1,4 +1,4 @@
-# Curd Básico de Laravel 5.4
+# Despliegue de teléfonos almacenados
 
 Este repositorio es solo de practica básica de un CRUD
 

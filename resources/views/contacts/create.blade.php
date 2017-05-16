@@ -7,12 +7,13 @@
  */
 ?>
 
-<a href="{{ route('orders.create') }}" class="">Nueva</a>
+
 
 @extends('layouts.app')
 
 @section('content')
-    {!! Form::open(['route' => 'contacts.store', 'method' => 'POST', 'class' => '']) !!}
+
+    {!! Form::open(['route' => 'contacts.store', 'method' => 'POST', 'class' => '', 'files' => true]) !!}
         @include('contacts.form')
     {!! Form::close() !!}
 

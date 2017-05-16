@@ -1,8 +1,9 @@
 # Curd Básico de Laravel 5.4
 
-Este repositorio es solo de practica basica de un CRUD
+Este repositorio es solo de practica básica de un CRUD
 
 Las Herramientas usadas son las siguientes
+
 * Mysql
 * Mysql workbrench (Diagrama Base de datos)
 * Php 7.0

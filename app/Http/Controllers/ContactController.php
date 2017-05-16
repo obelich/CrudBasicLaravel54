@@ -99,17 +99,17 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ContactsRequest $request, $id)
+    public function update(ContactsRequest $request, Person $contac)
     {
-        //
-        $person = $this->person->find($id);
-        $person->save($request->all());
+
+
+        $contac->update($request->all());
         if ($request->photo)
         {
             $archivo =  $this->uploadFile($request->photo, $this->user, 'contacts');
-            $person->update(['photo' =>  $archivo]);
+            $contac->update(['photo' =>  $archivo]);
         }
-        $person->telephones()->update($request->telephones);
+        $contac->telephones()->update($request->telephones);
         return redirect()->route('contacts.index');
 
     }
@@ -123,6 +123,11 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
+        $person = $this->person->find($id);
+        $person->delete();
+
+        return redirect()->route('contacts.index');
+
     }
 
     public static function uploadFile($file, $user, $directory)

@@ -23,10 +23,11 @@ class ContactsRequest extends FormRequest
      */
     public function rules()
     {
+        $contact = $this->route("contact");
         return [
             'names'=>'required|min:4|max:100',
             'last_name'=>'required|min:4|max:100',
-            'email'=>'required|min:4|email|unique:people,email',
+            'email'=>'required|min:4|email|unique:people,email,' . $contact,
             'telephones.type'=>'required',
             'telephones.number'=>'required|min:11|max:12'
         ];

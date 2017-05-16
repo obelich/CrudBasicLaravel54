@@ -15,9 +15,9 @@ class CreateTableAddresses extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('colony');
-            $table->integer('num_int')->nullable();
-            $table->integer('num_ext');
+            $table->string('colony', 120);
+            $table->char('num_int', 8)->nullable();
+            $table->char('num_ext', 8);
             $table->string('addresseable_type');
             $table->integer('addresseable_id')->index()->unsigned();
             $table->timestamps();

@@ -15,8 +15,8 @@ class CreateTableTelephones extends Migration
     {
         Schema::create('telephones', function (Blueprint $table) {
             $table->increments('id');
-              $table->enum('type', ['Local', 'Mobile'])->default('Local');
-              $table->string('number');
+              $table->enum('type', ['Local', 'Mobil'])->default('Local');
+              $table->string('number', 12);
               $table->string('telephoneable_type');
               $table->integer('telephoneable_id')->index()->unsigned();
             $table->timestamps();

@@ -15,9 +15,9 @@ class CreateTablePeople extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('names');
-            $table->string('last_name');
-            $table->string('email')->unique();
+            $table->string('names', 120);
+            $table->string('last_name', 120);
+            $table->string('email', 50)->unique();
             $table->string('photo')->nullable();
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

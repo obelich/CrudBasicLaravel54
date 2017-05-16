@@ -33,7 +33,7 @@
     <label for="">Teléfono</label>
     <br />
     <div class="col-md-4">
-        {{ Form::select('type', ['Local' => 'Local', 'Mobil' => 'Mobil'], null, ['id'=>'', 'class' => 'form-control'] ) }}
+        {{ Form::select('type', ['Local' => 'Local', 'Mobile' => 'Mobile'], null, ['id'=>'', 'class' => 'form-control'] ) }}
     </div>
     <div class="col-md-4">
         {{ Form::text('number', null, ['class' => 'form-control', 'placeholder' => '']) }}

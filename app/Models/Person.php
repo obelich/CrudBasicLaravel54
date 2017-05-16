@@ -25,12 +25,12 @@ class Person extends Model
 
     public function telephones()
     {
-        return $this->morphMany('App\Models\Telephone', 'telephoneable');
+        return $this->morphMany(Telephone::class, 'telephoneable');
     }
 
     public function addresses()
     {
-        return $this->morphMany('App\Models\Adress', 'addresseable');
+        return $this->morphMany(Address::class, 'addresseable');
     }
 
     public function full_name()

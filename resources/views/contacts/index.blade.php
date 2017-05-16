@@ -25,6 +25,12 @@
                     <td>{{$person->names}}</td>
                     <td>{{$person->last_name}}</td>
                     <td>{{$person->email}}</td>
+                    <td>
+                        @foreach($person->telephones as $telephone)
+                            {{ $telephone->type }} - {{ $telephone->number }}<br />
+                        @endforeach
+                    </td>
+
                 </tr>
             @endforeach
 

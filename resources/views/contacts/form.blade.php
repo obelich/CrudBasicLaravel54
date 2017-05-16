@@ -33,10 +33,14 @@
     <label for="">Teléfono</label>
     <br />
     <div class="col-md-4">
-        {{ Form::select('type', ['Local' => 'Local', 'Mobile' => 'Mobile'], null, ['id'=>'', 'class' => 'form-control'] ) }}
+        {{ Form::select('telephones[type]', ['Local' => 'Local', 'Mobile' => 'Mobile'], ((isset($person->telephones)) ? $person->telephones->first()->type : null) , ['id'=>'', 'class' => 'form-control'] ) }}
     </div>
+    @if (isset($person->telephones))
+        <input type="hidden" name="telephones[id]" value="{{$person->telephones->first()->id}}">
+
+    @endif
     <div class="col-md-4">
-        {{ Form::text('number', null, ['class' => 'form-control', 'placeholder' => '']) }}
+        {{ Form::text('telephones[number]', ((isset($person->telephones)) ? $person->telephones->first()->number : null), ['class' => 'form-control', 'placeholder' => '']) }}
     </div>
 
 </div>

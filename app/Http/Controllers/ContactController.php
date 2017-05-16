@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactsRequest;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +51,7 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactsRequest $request)
     {
         $request->merge(['user_id' =>  $this->user->id]);
 
@@ -61,7 +62,7 @@ class ContactController extends Controller
             $archivo =  $this->uploadFile($request->photo, $this->user, 'contacts');
             $person->update(['photo' =>  $archivo]);
         }
-        $person->telephones()->create($request->all());
+        $person->telephones()->create($request->telephones);
 
         return redirect()->route('contacts.index');
 
@@ -86,7 +87,9 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $person = $this->person->with('telephones')->find($id);
+
+        return view('contacts.edit')->with('person', $person);
     }
 
     /**
@@ -96,9 +99,19 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactsRequest $request, $id)
     {
         //
+        $person = $this->person->find($id);
+        $person->save($request->all());
+        if ($request->photo)
+        {
+            $archivo =  $this->uploadFile($request->photo, $this->user, 'contacts');
+            $person->update(['photo' =>  $archivo]);
+        }
+        $person->telephones()->update($request->telephones);
+        return redirect()->route('contacts.index');
+
     }
 
     /**
